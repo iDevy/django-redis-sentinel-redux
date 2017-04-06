@@ -36,6 +36,10 @@ class SentinelConnectionFactory(ConnectionFactory):
 
         # Get sentinels servers from options (even though it's not an option...)
         self.sentinels = options.get("SENTINELS", [])
+        
+        # Debug what's inside self.sentinels in order to fix "ValueError: too many values to unpack"
+        # as we expect touple (hostname,port)
+        raise Exception(self.sentinels)
 
         self.options = options
 
